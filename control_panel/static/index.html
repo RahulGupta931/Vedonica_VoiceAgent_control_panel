@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vedonica — Control Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="page">
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </span>
+        <div class="brand-text">
+          <h1>Vedonica <em>Control Panel</em></h1>
+          <p>Local mic test bench for the customer-support voice agent</p>
+        </div>
+      </div>
+      <div class="status" id="status-pill" data-state="idle">
+        <span class="dot"></span>
+        <span id="status-label">Checking…</span>
+      </div>
+    </header>
+
+    <main class="layout">
+
+      <section class="panel terminal-panel" aria-labelledby="session-heading">
+        <div class="term-chrome">
+          <span class="chip red"></span><span class="chip amber"></span><span class="chip green"></span>
+          <span class="term-title">local_run.py</span>
+        </div>
+
+        <div class="session-controls">
+          <div>
+            <h2 id="session-heading">Session</h2>
+            <p class="hint">Runs <code>python local_run.py</code> right here — talk through this machine's mic &amp; speakers.</p>
+          </div>
+          <button id="run-toggle" class="run-btn" data-state="idle">
+            <span class="btn-icon" aria-hidden="true"></span>
+            <span class="btn-label">Run Vedonica</span>
+          </button>
+        </div>
+
+        <div class="console" id="console" role="log" aria-live="polite"></div>
+
+        <div class="console-footer">
+          <label class="autoscroll">
+            <input type="checkbox" id="autoscroll" checked />
+            Auto-scroll
+          </label>
+          <button id="clear-console" class="ghost-btn">Clear</button>
+        </div>
+      </section>
+
+      <section class="panel prompt-panel" aria-labelledby="prompt-heading">
+        <div class="prompt-header">
+          <div>
+            <h2 id="prompt-heading">System prompt</h2>
+            <p class="hint">This is Vedonica's persona — how she talks, what she's grounded to, when she escalates. Edit it, save, then run again to hear the change.</p>
+          </div>
+          <span class="char-count" id="char-count">0 characters</span>
+        </div>
+
+        <textarea id="prompt-editor" spellcheck="false" placeholder="Loading current prompt…"></textarea>
+
+        <div class="prompt-footer">
+          <div class="prompt-actions">
+            <button id="save-prompt" class="run-btn small">Save prompt</button>
+            <button id="reload-prompt" class="ghost-btn">Reload from file</button>
+            <button id="revert-prompt" class="ghost-btn danger" title="Restore the version from before your first save">Revert</button>
+          </div>
+          <span id="prompt-message" class="prompt-message" role="status"></span>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="foot-note">
+      Editing writes directly to <code>app/prompts.py</code> on disk. A one-time backup is kept at <code>app/prompts.py.bak</code>.
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
