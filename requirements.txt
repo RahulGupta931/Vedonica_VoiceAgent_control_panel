@@ -1,4 +1,4 @@
-pipecat-ai[openai,deepgram,cartesia,twilio,sarvam]
+pipecat-ai[openai,deepgram,cartesia,twilio,sarvam,local]
 fastapi==0.115.6
 uvicorn[standard]==0.34.0
 python-dotenv==1.0.1
