@@ -1,4 +1,4 @@
-pipecat-ai[cartesia,deepgram,openai,elevenlabs,groq,google,azure,sarvam,soundfile,silero,webrtc,speechmatics,openrouter,camb,mcp,inworld,smallest,twilio,local]==0.0.108
+pipecat-ai[openai,deepgram,cartesia,twilio]
 fastapi==0.115.6
 uvicorn[standard]==0.34.0
 python-dotenv==1.0.1
