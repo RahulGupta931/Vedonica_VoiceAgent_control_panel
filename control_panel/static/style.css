@@ -223,6 +223,8 @@ html, body {
 .console .line-error { color: var(--bad); }
 .console .line-warn { color: var(--accent); }
 .console .line-system { color: var(--text-faint); font-style: italic; }
+.console .line-user { color: #8eb4e8; }
+.console .line-bot { color: var(--good); }
 .console:empty::before {
   content: "Console output appears here once Vedonica is running.";
   color: var(--text-faint);
