@@ -70,14 +70,22 @@ async def main() -> None:
         )
 
     # ---- Telephony -> local mic/speaker -----------------------------------
-    transport = LocalAudioTransport(
-        LocalAudioTransportParams(
-            audio_in_enabled=True,
-            audio_out_enabled=True,
-            vad_analyzer=SileroVADAnalyzer(params=VADParams(stop_secs=0.5)),
-            vad_audio_passthrough=True,
+    IS_RENDER = os.getenv("RENDER") == "true"
+
+    if not IS_RENDER:
+        transport = LocalAudioTransport(
+            LocalAudioTransportParams(
+                audio_in_enabled=True,
+                audio_out_enabled=True,
+                vad_analyzer=SileroVADAnalyzer(
+                    params=VADParams(stop_secs=0.5)
+                ),
+                vad_audio_passthrough=True,
+            )
         )
-    )
+    else:
+        print("Running on Render - LocalAudio disabled")
+        return """  """
 
     # ---- STT / LLM / TTS (same provider factory as the phone flow) --------
     stt = build_stt()
@@ -133,7 +141,8 @@ async def main() -> None:
 
     @transport.event_handler("on_client_connected")
     async def on_client_connected(_transport, _client):
-        logger.info("Local audio session started — start talking (Ctrl+C to stop)")
+        logger.info(
+            "Local audio session started — start talking (Ctrl+C to stop)")
         greeting = build_greeting()
         context.add_message({"role": "assistant", "content": greeting})
         await task.queue_frames([TTSSpeakFrame(greeting)])
