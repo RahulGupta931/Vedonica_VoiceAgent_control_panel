@@ -1,4 +1,4 @@
-pipecat-ai[openai,deepgram,cartesia,twilio]
+pipecat-ai[openai,deepgram,cartesia,twilio,sarvam]
 fastapi==0.115.6
 uvicorn[standard]==0.34.0
 python-dotenv==1.0.1
@@ -7,6 +7,7 @@ asyncpg==0.30.0
 httpx==0.28.1
 loguru==0.7.3
 pyaudio==0.2.14
+sarvamai
 # control_panel/server.py (local dashboard: run/stop local_run.py + edit
 # the system prompt) only needs fastapi + uvicorn[standard], both already
 # above. uvicorn[standard] pulls in `websockets`, which is what the panel's
