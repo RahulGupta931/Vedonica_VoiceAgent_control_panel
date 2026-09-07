@@ -28,4 +28,4 @@ COPY . .
 # Render provides PORT env variable
 ENV PORT=10000
 
-CMD ["uvicorn", "control_panel.server:app", "--host", "0.0.0.0", "--port", "10000"]
+CMD ["sh", "-c", "uvicorn control_panel.server:app --host 0.0.0.0 --port ${PORT}"]
