@@ -22,7 +22,7 @@
         </span>
         <div class="brand-text">
           <h1>Vedonica <em>Control Panel</em></h1>
-          <p>Local mic test bench for the customer-support voice agent</p>
+          <p>Browser voice test bench for the customer-support voice agent</p>
         </div>
       </div>
       <div class="status" id="status-pill" data-state="idle">
@@ -36,13 +36,13 @@
       <section class="panel terminal-panel" aria-labelledby="session-heading">
         <div class="term-chrome">
           <span class="chip red"></span><span class="chip amber"></span><span class="chip green"></span>
-          <span class="term-title">local_run.py</span>
+          <span class="term-title">browser voice session</span>
         </div>
 
         <div class="session-controls">
           <div>
             <h2 id="session-heading">Session</h2>
-            <p class="hint">Runs <code>python local_run.py</code> right here — talk through this machine's mic &amp; speakers.</p>
+            <p class="hint">Click Run — your browser will ask for mic permission. Vedonica greets first, then you speak. Use headphones.</p>
           </div>
           <button id="run-toggle" class="run-btn" data-state="idle">
             <span class="btn-icon" aria-hidden="true"></span>
@@ -89,6 +89,6 @@
     </footer>
   </div>
 
-  <script src="/static/app.js"></script>
+  <script type="module" src="/static/app.js"></script>
 </body>
 </html>
