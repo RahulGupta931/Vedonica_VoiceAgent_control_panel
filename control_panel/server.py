@@ -36,7 +36,7 @@ from fastapi.responses import FileResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from loguru import logger
 
-from webrtc import WebRTCSessionManager
+from control_panel.webrtc import WebRTCSessionManager
 
 load_dotenv(override=True)
 PROMPTS_FILE = PROJECT_ROOT / "app" / "prompts.py"
