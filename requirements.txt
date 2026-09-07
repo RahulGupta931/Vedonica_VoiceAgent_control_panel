@@ -1,0 +1,13 @@
+pipecat-ai[cartesia,deepgram,openai,elevenlabs,groq,google,azure,sarvam,soundfile,silero,webrtc,speechmatics,openrouter,camb,mcp,inworld,smallest,twilio,local]==0.0.108
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-dotenv==1.0.1
+twilio==9.4.4
+asyncpg==0.30.0
+httpx==0.28.1
+loguru==0.7.3
+pyaudio==0.2.14
+# control_panel/server.py (local dashboard: run/stop local_run.py + edit
+# the system prompt) only needs fastapi + uvicorn[standard], both already
+# above. uvicorn[standard] pulls in `websockets`, which is what the panel's
+# live log streaming uses — nothing new to add.
